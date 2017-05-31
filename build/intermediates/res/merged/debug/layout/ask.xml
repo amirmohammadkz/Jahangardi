@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/menubg2"
+    android:padding="30dp">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:id="@+id/txtquestion"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/start"
+            android:background="@drawable/red_button"
+            style="?borderlessButtonStyle"
+
+            android:id="@+id/btnoption0"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/start"
+            android:background="@drawable/red_button"
+            style="?borderlessButtonStyle"
+            android:id="@+id/btnoption1" />
+    </LinearLayout>
+
+
+</LinearLayout>

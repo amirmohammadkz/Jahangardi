@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">نمونه اولیه</string>
+
+    <string name="start">شروع</string>
+    <string name="about">درباره ما</string>
+    <string name="exit">خروج</string>
+    <string name="aboutText">برنامه نویس: امیرمحمد کاظمینی زاده</string>
+</resources>
