@@ -10,9 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class ActivityGame extends AppCompatActivity {
-    QuestionMaker questionMaker=new QuestionMaker();
-    int counter=0;
+    QuestionMaker questionMaker = new QuestionMaker();
+    int counter = 0;
+    int[] sortCity=new int[62];
 
 
     @Override
@@ -20,14 +23,15 @@ public class ActivityGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Button btnKerman=(Button)findViewById(R.id.btnKerman);
-        Button btnZahedan=(Button)findViewById(R.id.btnZahedan);
+        Button btnKerman = (Button) findViewById(R.id.btnKerman);
+        Button btnZahedan = (Button) findViewById(R.id.btnZahedan);
+        sortCity=randomCity();
 
         btnKerman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ask(questionMaker.questions[counter%2]);
+                ask(questionMaker.questions[counter % 2]);
                 counter++;
 
 
@@ -38,7 +42,7 @@ public class ActivityGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ask(questionMaker.questions[counter%2]);
+                ask(questionMaker.questions[counter % 2]);
                 counter++;
 
 
@@ -48,18 +52,18 @@ public class ActivityGame extends AppCompatActivity {
 
     }
 
-    public  void ask(final Question question) {
-        Log.i("1","1");
+    public void ask(final Question question) {
+        Log.i("1", "1");
 
         final Dialog ask = new Dialog(ActivityGame.this);
-        Log.i("1","2");
+        Log.i("1", "2");
         ask.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        Log.i("1","3");
+        Log.i("1", "3");
         ask.setContentView(R.layout.ask);
         ask.setCancelable(false);
         ask.setCanceledOnTouchOutside(false);
 
-        Log.i("1","4");
+        Log.i("1", "4");
         TextView txtquestion = (TextView) ask.findViewById(R.id.txtquestion);
         Button btnoption0 = (Button) ask.findViewById(R.id.btnoption0);
         Button btnoption1 = (Button) ask.findViewById(R.id.btnoption1);
@@ -100,8 +104,25 @@ public class ActivityGame extends AppCompatActivity {
         });
 
         ask.show();
-        Log.i("asktesting","test done yeahhhhhh");
+        Log.i("asktesting", "test done yeahhhhhh");
 
     }
 
+    static int[] randomCity() {
+        Random rnd = new Random();
+        int[] source = new int[62];
+        for (int i = 0; i < 62; i++) {
+            source[i] = i / 2;
+        }
+
+        for (int i = source.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            int a = source[index];
+            source[index] = source[i];
+            source[i] = a;
+        }
+        return source;
+
+    }
 }
