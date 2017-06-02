@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".ActivityGame">
         </activity>
+        <activity android:name=".ActivityPro">
+            </activity>
     </application>
 
 </manifest>
